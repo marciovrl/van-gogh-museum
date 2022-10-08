@@ -4,8 +4,10 @@
   "description": "Test cases in the website of Van Gogh Museum.",
   "main": "index.js",
   "scripts": {
-    "open": "cypress open",
-    "test": "cypress run --browser chrome --headless"
+    "cypress:open": "cypress open",
+    "cypress:chrome": "cypress run --browser chrome --headless --reporter mochawesome",
+    "cypress:firefox": "cypress run --browser firefox --headless --reporter mochawesome"
+
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/marciovrl/van-gogh-museum#readme",
   "devDependencies": {
-    "cypress": "^10.9.0"
+    "cypress": "^10.9.0",
+    "mochawesome": "^7.1.3"
   }
 }
