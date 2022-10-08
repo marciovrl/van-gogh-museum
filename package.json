@@ -1,0 +1,22 @@
+{
+  "name": "van-gogh-museum",
+  "version": "1.0.0",
+  "description": "Test cases in the website of Van Gogh Museum.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciovrl/van-gogh-museum.git"
+  },
+  "author": "Marcio Lemos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciovrl/van-gogh-museum/issues"
+  },
+  "homepage": "https://github.com/marciovrl/van-gogh-museum#readme",
+  "devDependencies": {
+    "cypress": "^10.9.0"
+  }
+}
