@@ -18,7 +18,13 @@ describe('Test automation assignment', () => {
         })
 
         it(`Test case 2 - As a user I must view the paintings as my search "${paintingTitle}"`, () => {
+            cy.intercept('GET', '/collectie*').as('searchCollection')
             cy.filterPainting(paintingTitle)
+
+            cy.wait('@searchCollection').then(({ response }) => {
+                expect(response.statusCode).to.eql(200)
+                expect(response.body.totalResults).to.greaterThan(700)
+              })
 
             cy.get('.results').invoke('text').then(parseFloat).should('be.gt', 700)
         })
