@@ -13,14 +13,13 @@ describe('Test automation assignment', () => {
     })
 
     context('be on the collection page', () => {
-
         beforeEach(() => {
             cy.goToCollectionPage()
         })
 
         it(`Test case 2 - As a user I must view the paintings as my search "${paintingTitle}"`, () => {
             cy.filterPainting(paintingTitle)
-            
+
             cy.get('.results').invoke('text').then(parseFloat).should('be.gt', 700)
         })
 
@@ -28,9 +27,17 @@ describe('Test automation assignment', () => {
             cy.filterPainting(paintingTitle)
             cy.selectItemByOrderInList(1) //select the first item
 
-            cy.contains('F0464')
-            cy.contains('JH1589')
-            cy.contains('s0032V1962')
+            cy.get('.definition-list-item')
+                .within(() => {
+                    cy.get('dt').eq(0).contains('F-nummer')
+                    cy.get('dd').eq(0).contains('F0464')
+
+                    cy.get('dt').eq(1).contains('JH-nummer')
+                    cy.get('dd').eq(1).contains('JH1589')
+
+                    cy.get('dt').eq(2).contains('Inventarisnummer')
+                    cy.get('dd').eq(2).contains('s0032V1962')
+                })
         })
     })
 })
